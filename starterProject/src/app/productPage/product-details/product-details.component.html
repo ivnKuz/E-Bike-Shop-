@@ -1,0 +1,53 @@
+<p *ngIf="isFetching">Loading data...</p>
+<div *ngIf="!isFetching" class="container">
+    <div *ngIf="!editMode" class="container_left">
+        <img class="container_left_image" src="{{currentProduct[0].imgUrl || currentProduct[0].imgFile}}" alt="">
+        <div class="container_left_textUnderImage"><span *ngFor="let color of currentProduct[0].color">{{color}}/</span></div>
+        
+        <button *ngIf="isAdmin" routerLink="" (click)="deleteCurrentProduct(currentProduct[0].id)" class="container_left_button btn btn-danger delete-btn">Delete this product</button>
+        <button *ngIf="isAdmin || isOwner"  (click)="editCurrentProduct()" class="container_left_button btn btn-warning edit-btn">Edit this product</button>
+    
+    </div>
+    <div *ngIf="editMode" >
+    <app-new-edit-product-form [Product]="currentProduct[0]" [editMode]="editMode"></app-new-edit-product-form>
+    </div>
+    <div *ngIf="!editMode" class="container_right">
+        <h2 class="gap">{{currentProduct[0].name}}</h2>
+        <p>{{currentProduct[0].description}}<a href=""> ..(Read more)</a></p>
+        <h4>{{currentProduct[0].price * (1 - currentProduct[0].discount / 100) | currency: 'EUR'}}</h4>
+        <div>
+            <span><fa-icon class="yellow" [icon]="stars"></fa-icon></span>
+            <span><fa-icon class="yellow" [icon]="stars"></fa-icon></span>
+            <span><fa-icon class="yellow" [icon]="stars"></fa-icon></span>
+            <span><fa-icon class="yellow" [icon]="stars"></fa-icon></span>
+            <span><fa-icon class="yellow" [icon]="stars"></fa-icon></span>
+        </div>
+        <div class="review_container">
+        <a href="">Read reviews</a>
+        <a id="writeReview" href="">Write a review</a>
+    </div>
+    <div class="form-group">
+        <label for="select_color">Color</label>
+        <select class="col-sm-12" name="SelectColor" id="select_color">
+            <option *ngFor="let color of currentProduct[0].color" value="{{color}}">{{color}}</option>
+        </select>
+    </div>
+        <div class="form-group">
+        <label for="select_size">Size</label>
+        <select class="col-sm-12" name="SelectColor" id="select_size">
+            <option *ngFor="let size of currentProduct[0].size" value="">{{size}}</option>
+        </select>
+    </div>
+    <p class="gap"><b>Availability:</b> select options</p>
+ 
+    <label  for="quantity"><b>Quantity</b></label>
+    <input class="col-sm-2 gap" placeholder="..." name="" id="quantity">
+    
+<div class="col-sm-12 gap">
+<button class="form-control btn btn-primary"><fa-icon [icon]="CartIcon"></fa-icon> Add to cart</button>
+</div>
+<div class="col-sm-12 gap">
+<button class="form-control"><fa-icon [icon]="wishListIcon"></fa-icon> Add to Wish List</button>
+</div>
+</div>
+</div>

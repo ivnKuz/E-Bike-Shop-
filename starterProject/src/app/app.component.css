@@ -1,0 +1,11 @@
+
+#mainPage{
+    position: absolute;
+    display: grid;
+    justify-content: center;
+    height: 80vh;
+    top: 10vh;
+    left: 7rem;
+    right: 7rem;
+    margin-bottom: -7vh; 
+}

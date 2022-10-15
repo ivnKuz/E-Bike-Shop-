@@ -1,0 +1,52 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -86.279118,
+            32.361538
+          ]
+        },
+        "properties": {
+          "state": "Alabama",
+          "name": "Jojo's Bikes",
+          "adress": "something street 436"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -104.802042,
+          41.145548
+          ]
+        },
+        "properties": {
+          "state": "Wyoming",
+          "name": "Jojo's Bikes",
+          "adress": "Baker st 221B"
+        }
+      },
+      {
+        "type": "Feature",
+        "geometry": {
+          "type": "Point",
+          "coordinates": [
+            -71.422132,
+            41.82355
+          ]
+        },
+        "properties": {
+          "state": "Massachusetts",
+          "name": "Jojo's Bikes",
+          "adress": "Adress adress in adress"
+        }
+      }
+    
+    ]
+    
+    }

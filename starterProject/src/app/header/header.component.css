@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgb(57, 56, 56);
+    color: aliceblue;
+    height: 10vh;
+    z-index: 3;
+}
+#headerTitle{
+    position: absolute;
+    text-decoration: none;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(237, 15, 214);
+    left: 3%;  
+    top: 30%;
+}
+.logInOut{
+    position: absolute;
+    font-size: large;
+    right: 3%;
+    top: 30%;
+}
+.logInOut:hover{
+    color: aqua;
+    cursor: pointer;
+}

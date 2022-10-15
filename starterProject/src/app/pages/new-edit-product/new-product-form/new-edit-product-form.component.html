@@ -1,0 +1,66 @@
+<form (ngSubmit)="submitNewProduct()" [formGroup]="newProductForm" class="newProductForm form-control">
+    
+   
+    <div class="form-group">
+        <label for="imageUpload">Bike image</label>
+        <input  type="file" (change)="imageSelected($event)" id="imageUpload" formControlName="imgFile">
+        <!-- showing image only if it's not empty -->
+        <img *ngIf="imageSrc" id="imgPreview" [src]="imageSrc || null" alt="">
+    </div>
+    
+    <div class="form-group">
+        <label  for="imgUrl" >Image Url/Name</label>
+        <!-- making an id that starts with lowerCase using the names from array -->
+        <input (change)="enteredUrl()" #urlInput class="form-control" id="imgUrl" type="text" formControlName="imgUrl">
+        
+        </div>
+
+        <div class="form-group">
+            <label  for="bike_name">Name</label>
+            <input class="form-control" type="text" id="bike_name" formControlName="bikeName">
+        </div>
+
+    <div class="form-group" *ngFor="let inputs of inputsIds">
+        <label for="{{inputs}}" >{{inputs[0].toUpperCase() + inputs.slice(1)}}</label>
+        <!-- making an id that starts with lowerCase using the names from array -->
+        <input class="form-control" id="{{inputs}}" type="text" formControlName="{{inputs}}">
+        </div>
+
+        <div class="form-group">
+        <label for="shippingSelect">Shipping</label>
+        <select formControlName="shipping" class="form-select" id="shippingSelect">
+            <option *ngFor="let shipOption of shippingOptions" value="{{shipOption}}">{{shipOption}}</option>
+        </select>
+        </div>
+
+        <div class="form-group">
+            <label for="condition">Condition</label>
+            <select formControlName="condition" class="form-select" id="shippingSelect">
+                <option  value="New">New</option>
+                <option  value="Used">Used</option>
+            </select>
+        </div>
+        <!-- colors checkboxes -->
+        <div class="form-group">
+            <h5>Colors:</h5>
+            <div class="form-check form-check-inline" *ngFor="let color of Colors; let i=index">
+                <label>
+                <input [value]="color.value" (change)="onCheckboxColorChange($event)" class="form-check-input" id="Cblack" type="checkbox">
+                {{color.name}}
+            </label>
+            </div>
+        </div>
+        <!-- sizes checkboxes -->
+        <div class="form-group">
+            <h5>Sizes:</h5>
+            <div class="form-check form-check-inline" *ngFor="let size of Sizes; let i=index">
+                <label>
+                <input [value]="size.value" (change)="onCheckboxSizeChange($event)" class="form-check-input" id="Cblack" type="checkbox">
+                {{size.name}}
+            </label>
+            </div>
+        </div>
+        <div class="form-group gap">
+            <button [disabled]="!newProductForm.valid" type="submit" class="form-control btn btn-primary">{{editMode ? 'Edit Product' : 'Create new Product'}}</button>
+        </div>
+</form>

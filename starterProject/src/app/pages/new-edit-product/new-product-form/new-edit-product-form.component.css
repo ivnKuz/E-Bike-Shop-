@@ -1,0 +1,23 @@
+.newProductForm{
+    width: 60vw;
+    margin-bottom: 3vw;
+}
+.gap{
+    margin-top: 10px;
+}
+#imgPreview{
+    width: 180px;
+    height: 180px;
+}
+
+@media screen and (max-width: 1000px) {
+    .newProductForm{
+    width: 100vw;
+    margin-top: 1rem;
+    margin-bottom: 7vh;
+    }
+    #imgPreview{
+        width: 150px;
+        height: 150px;
+    }
+}

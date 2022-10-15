@@ -1,0 +1,49 @@
+.dialog-content{
+    position: relative;
+    height: 60vh;
+    width: 60vw;
+}
+#closeDialog{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#facebookLoginBtn{
+    position: absolute;
+    left: 0;
+    font-size: 30px;
+    height: 50px;
+}
+.loginForm{
+    position: relative;
+    height: 30vh;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.btn-login{
+    position: absolute;
+    font-size: 30px;
+    right: 0;
+}
+.upper_buttons{
+    position: relative;
+    width: 49%;
+    background: transparent;
+    margin-left: 3px;
+    font-size: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    border: none;
+}
+.active{
+    border-bottom: solid black 1px;
+}
+@media screen and (max-width: 1000px){
+    .upper_buttons{
+        display: grid;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .btn-login{
+        width: 100%;
+    }
+}

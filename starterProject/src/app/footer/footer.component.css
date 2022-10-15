@@ -1,0 +1,18 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+#footer{
+  position: fixed;
+  display: block;   
+  height: 6vh;
+  width: 100%;
+  bottom: 0;
+  background: rgb(0, 0, 0);
+    color: white;
+    text-align: right;
+    z-index: 3;
+}

@@ -1,0 +1,51 @@
+<div class="wrapper">
+   <p *ngIf="isFetching">Loading...</p>
+   <a *ngIf="!isFetching" [routerLink]="['/products', topDeal[0].id]" class="top-deal" >
+      <div [ngClass]="{
+         'red' : topDeal[0].discount > 70,
+         'pink' : topDeal[0].discount < 60,
+         'orange' : topDeal[0].discount < 50
+      }" class="card__discount">
+         {{topDeal[0].discount}}%
+        </div>
+        <img class="top-deal__image" src="{{topDeal[0].imgUrl}}" alt="">
+        <div class="top-deal-description"> {{ topDeal[0].description | slice:0:35 }}...</div>
+        <div class="top-deal__top-palceholder">
+         <h2 class="top-palceholder--align-left">{{topDeal[0].price * (1 - topDeal[0].discount / 100) | currency: 'EUR'}}  </h2>
+         <h3 class="top-palceholder__discount--align-left">{{topDeal[0].price  | currency: 'EUR'}}</h3>
+         <h4 class="top-palceholder--align-right" >{{topDeal[0].shop}}</h4>
+      </div>
+      <div class="top-deal__bottom-palceholder">
+         <h3 class="bottom-placeholder__description">{{topDeal[0].new ? "new" : "used"}}</h3>
+         <h3 class="bottom-placeholder__description">{{topDeal[0].shipping ? topDeal[0].shipping : '...'}}</h3>
+         <h3 class="bottom-placeholder__description">Untill {{topDeal[0].discountUntil | date}}</h3>
+      </div>
+   </a>
+ 
+   <!--  -->
+   <p *ngIf="isFetching">Loading...</p>
+<div  *ngIf="!isFetching" class="container">
+
+<a [routerLink]="['/products', product.id]" *ngFor="let product of bikeList"  class="card">
+   <div *ngIf="product.discount != 0" class="card__discount"
+   [ngClass]="{
+      'red' : product.discount > 70,
+      'pink' : product.discount < 60,
+      'orange' : product.discount < 50
+   }">
+    {{product.discount}}%
+   </div>
+   <img class="card__image" src="{{product.imgUrl || product.imgFile}}" alt="">
+   <div class="card__description">{{product.description | slice:0:25}}...</div>
+   <div class="card__top-palceholder">
+      <h2 class="top-palceholder--align-left">{{product.price * (1 - product.discount / 100) | currency: 'EUR'}}</h2>
+      <h3 *ngIf="product.discount != 0" class="top-palceholder__discount--align-left">{{product.price  | currency: 'EUR'}}</h3>
+      <h4 class="top-palceholder--align-right" >{{product.shop}}</h4>
+   </div>
+   <div class="card__bottom-palceholder">
+      <h3 class="bottom-placeholder__condition">{{product.new ? "new" : "used"}}</h3>
+      <h3 class="bottom-placeholder__shipping">{{product.shipping ? product.shipping : '...'}}</h3>
+   </div>
+</a>
+</div>
+</div>

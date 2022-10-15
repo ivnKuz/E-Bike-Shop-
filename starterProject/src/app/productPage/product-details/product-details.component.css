@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+}
+.container{
+    display: flex;;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.container_left_button{
+    padding: 10px 10px;
+}
+.edit-btn{
+    float: right;
+}
+.delete-btn{
+    float: left;
+}
+
+.container_left{
+    width: 100%;
+    margin-right: 50px;
+    margin-left: 20px;
+}
+.container_right{
+    width: 100%;
+    margin-bottom:3vh ;
+}
+.container_left_image{
+    height: 70%;
+    width: 100%;
+}
+.review_container{
+    position: relative;
+    width: 100%;
+}
+#writeReview{
+    display: inline;
+    float: right;
+    right: 0;
+}
+.gap{
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.yellow{
+    color: rgb(255, 226, 8)   
+}
+.container_left_textUnderImage{
+    text-align: center;
+}
+@media screen and (max-width: 1000px) {
+    .container{
+        flex-direction: column;
+    }
+}

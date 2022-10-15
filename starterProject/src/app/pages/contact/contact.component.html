@@ -1,0 +1,54 @@
+<div class="contact-container">
+  
+  <form class="contactUs__form" (ngSubmit)="onSubmit()" #f="ngForm">
+
+    <h3>Contact us:</h3>
+
+    <label for="name">Name:</label>
+    <input class="form-control"
+     id="name"
+      type="text"
+       ngModel
+        name="username"
+        required
+        minlength="2"
+        #userName="ngModel">
+        <p *ngIf="!userName.dirty && userName.touched" class="form-text">Please enter your Name.</p>
+    <label for="sureName">Sure Name:</label>
+    <input class="form-control"
+     id="sureName"
+      type="text" 
+      minlength="2"
+      ngModel
+       name="usersurename"
+       required
+       #userSureN="ngModel">
+       <p *ngIf="!userSureN.dirty && userSureN.touched" class="form-text">Please enter your Sure Name.</p>
+    <label for="mail">Email:</label>
+    <input class="form-control"
+     id="mail"
+      type="text"
+       ngModel
+        name="usermail"
+        required
+        email
+        #email="ngModel">
+    <p *ngIf="!email.valid && email.touched" class="form-text">Please enter a valid email.</p>
+
+    <label for="description">A word from you:</label>
+    <textarea class="form-control"
+      id="description"
+       cols="20"
+        rows="5"
+         ngModel
+          name="description">
+        </textarea>
+
+    <button [disabled]="!f.valid" type="submit" class="form-control btn btn-primary">Send</button>
+
+  </form>
+
+    <div class="map-frame">
+      <div id="map"></div>
+    </div>
+  </div>

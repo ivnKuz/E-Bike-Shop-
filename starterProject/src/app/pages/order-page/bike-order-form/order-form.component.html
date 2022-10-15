@@ -1,0 +1,50 @@
+<form [formGroup]="orderForm" class="order-form form-control" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+    <label for="goods">Select bike:</label>
+    <!-- if fetching data  -->
+    <p *ngIf="isFetching">Loading Data...</p>
+    <select *ngIf="!isFetching" formControlName="bike"  class="form-select" id="goods">
+        <option *ngFor="let bike of bikes" [ngValue]="bike">
+            {{ bike.name }}: {{ bike.description | slice: 0:55}} 
+          </option>
+    </select>
+    </div>
+    <div  formGroupName="userAdress">
+    <div class="form-group" *ngFor="let adress of personalAdress">
+    <label for="{{adress[0].toLowerCase() + adress.slice(1)}}" >{{adress}}</label>
+    <!-- making an id that starts with lowerCase using the names from array -->
+    <input class="form-control" id="{{adress[0].toLowerCase() + adress.slice(1)}}" type="text" formControlName="{{adress}}">
+    </div>
+    </div>
+    <div class="form-group order-form__payment">
+        <h4>Payment Method:</h4>
+    <div *ngFor="let payment of paymentMethods" class="form-check">
+        <!-- making an id that starts with lowerCase using the names from array -->
+        <input name="paymentMethod" id="{{payment[0].toLowerCase() + payment.slice(1)}}" value="{{payment}}" class="btn-check" type="radio" formControlName="paymentMethod">
+        <label for="{{payment[0].toLowerCase() + payment.slice(1)}}" class="btn btn-outline-primary">{{payment}}</label>
+    </div>
+    </div> 
+    <div class="form-group order-form__date">
+        <h4>Delivery date:</h4>
+        <div class="form-check form-check-inline">
+            <input  name="deliveryDate" class="btn-check" value="Today" id="today" type="radio" formControlName="deliveryDate">
+            <label  class="btn btn-success" for="today">Today</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input name="deliveryDate" class="btn-check" value="Tomorrow" id="tomorrow" type="radio" formControlName="deliveryDate">
+            <label class="btn btn-warning" for="tomorrow">Tomorrow</label>
+        </div>
+        <div>
+            <label for="start">Choose date:</label>
+            <input formControlName="deliveryDate" class="form-control" type="date" id="start">
+        </div>
+    </div>
+    <br>
+    <div class="form-group">
+    <button [disabled]="!orderForm.valid" type="submit" class="form-control btn btn-primary">Place the order</button>
+    </div>
+    <div *ngIf="orderForm.valid && orderForm.dirty && formSubmited" class="form-control orderSubmitedPage">
+        <app-bike-order-submited (formReseted)="newOrder($event)"></app-bike-order-submited>
+    </div>
+    
+</form>

@@ -1,0 +1,17 @@
+.order-form{
+    position: relative;
+    margin-top: 2vh;
+    margin-bottom: 4vh;
+    min-width: 50vw;
+    min-height: 80vh;
+}
+.orderSubmitedPage{
+    margin: 40px auto;
+}
+@media screen and (max-width: 1000px) {
+    .order-form{
+    width: 100vw;
+    margin-top: 1rem;
+    margin-bottom: 7vh;
+    }
+}
