@@ -22,8 +22,7 @@ export interface AuthResponseData {
   providedIn: 'root'
 })
 export class LoginAuthService {
-  // emmiter to monitor which user is logged in right now
-  // note to self: behavior subject gives access to previously emitted value, even if that value was emitted
+  // Subject to monitor which user is currently logged in
   user = new BehaviorSubject<User>(null);
   private tokenExpirationTimer: any;
 
@@ -57,9 +56,7 @@ export class LoginAuthService {
         // Handle Errors here.
         const errorCode = error.code;
         const errorMessage = error.message;
-        // The email of the user's account used.
         const email = error.customData.email;
-        // The AuthCredential type that was used.
         const credential = FacebookAuthProvider.credentialFromError(error);
     
         // ...
