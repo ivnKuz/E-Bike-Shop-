@@ -1,9 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-#header{
+
+#header {
     position: fixed;
     top: 0;
     left: 0;
@@ -13,50 +14,75 @@
     height: 10vh;
     z-index: 3;
 }
-#headerTitle{
+
+#headerTitle {
     position: absolute;
     text-decoration: none;
     font-family: 'Times New Roman', Times, serif;
     color: rgb(237, 15, 214);
-    left: 3%;  
+    left: 3%;
     top: 30%;
 }
-.logInOut{
+
+.logInOut {
     position: absolute;
     font-size: large;
     right: 3%;
     top: 30%;
     animation: moveFromTop 1s;
 }
-.logInOut:hover{
+
+.logInOut:hover {
     color: aqua;
     cursor: pointer;
 }
-#title{
+
+#title {
     animation: moveToRight 2s ease-in-out;
 }
-@keyframes moveToRight{
-    0%{
+
+.links {
+    position: relative;
+    display: flex;
+    margin-top: 30px;
+    font-size: 24px;
+    justify-content: center;
+    list-style-type: none;
+    flex-direction: row;
+}
+
+.links>li>a {
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+@keyframes moveToRight {
+    0% {
         opacity: 0;
         transform: translateX(-100px);
     }
-    80%{
+
+    80% {
         transform: translateX(5px);
     }
-    100%{
+
+    100% {
         opacity: 1;
         transform: translateX(0);
     }
 }
-@keyframes moveFromTop{
-    0%{
+
+@keyframes moveFromTop {
+    0% {
         opacity: 0;
         transform: translateY(-100px);
     }
-    80%{
+
+    80% {
         transform: translateY(5px);
     }
-    100%{
+
+    100% {
         opacity: 1;
         transform: translateY(0);
     }

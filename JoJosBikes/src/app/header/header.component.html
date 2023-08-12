@@ -7,4 +7,14 @@
     <!-- using angular material to pop up the component -->
     <a *ngIf="!isAuthenticated" class="logInOut" (click)="openDialog()">Sign In/Sign Up</a>
     <a *ngIf="isAuthenticated" class="logInOut" (click)="onLogOut()">Logout</a>
+    <nav>
+        <ul class="links text-center">
+            <li><a routerLink="">Home</a></li>
+            <li><a routerLink="/Contact">Contact</a></li>
+            <li><a routerLink="/order/order-form">Order</a></li>
+            <li><a routerLink="/create/new-product">New Product</a></li>
+            <li><a>About</a></li>
+        </ul>
+
+    </nav>
 </header>
