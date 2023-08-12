@@ -8,13 +8,15 @@
     <a *ngIf="!isAuthenticated" class="logInOut" (click)="openDialog()">Sign In/Sign Up</a>
     <a *ngIf="isAuthenticated" class="logInOut" (click)="onLogOut()">Logout</a>
     <nav>
-        <ul class="links text-center">
-            <li><a routerLink="">Home</a></li>
-            <li><a routerLink="/Contact">Contact</a></li>
-            <li><a routerLink="/order/order-form">Order</a></li>
-            <li><a routerLink="/create/new-product">New Product</a></li>
-            <li><a>About</a></li>
-        </ul>
-
+        <div class="dropdown">
+            <button class="dropbtn">Menu</button>
+            <div class="dropdown-content">
+                <a routerLink="">Home</a>
+                <a routerLink="/Contact">Contact</a>
+                <a routerLink="/order/order-form">Order</a>
+                <a routerLink="/create/new-product">New Product</a>
+                <a>About</a>
+            </div>
+        </div>
     </nav>
 </header>
