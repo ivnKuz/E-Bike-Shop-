@@ -1,14 +1,14 @@
-
-<app-header></app-header>
-<app-left-block></app-left-block>
-<app-right-block></app-right-block>
 <section class="page-wrap" id="mainPage">
+    <app-header></app-header>
+    <nav>
+
+        <app-left-block></app-left-block>
+    </nav>
     <router-outlet></router-outlet>
+    <nav>
+        <app-footer></app-footer>
+    </nav>
 </section>
-
-
-<app-footer></app-footer>
-
-
-
-
+<!-- 
+<app-left-block></app-left-block>
+<app-right-block></app-right-block> -->

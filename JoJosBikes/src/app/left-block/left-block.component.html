@@ -1,10 +1,19 @@
 <div id="left-side">
-    <ul class="side-links">
-        <li><a routerLink="" >Home</a></li>
-        <li><a routerLink="/Contact" >Contact</a></li>
-        <!-- only shows those links to authorised or special roles users -->
-        <li><a  routerLink="/order/order-form" >Order</a></li>
-        <li><a  routerLink="/create/new-product" >New Product</a></li>
-        <li><a >About</a></li>
-    </ul>
+    <div class="dropdown show">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Dropdown link
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" routerLink="">Home</a>
+            <a class="dropdown-item" routerLink="/Contact">Contact</a>
+            <!-- only shows those links to authorised or special roles users -->
+            <a class="dropdown-item" routerLink="/order/order-form">Order</a>
+            <a class="dropdown-item" routerLink="/create/new-product">New Product</a>
+            <a class="dropdown-item">About</a>
+        </div>
+
+    </div>
+
 </div>
