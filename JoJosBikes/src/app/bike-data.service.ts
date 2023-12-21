@@ -42,7 +42,12 @@ deleteItem(itemId:string){
 
 //edit chosen product
 editItem(itemId:string, value: productCard){
-   this.http.put(this.linkUpdateDelete + itemId + '.json', value)
+  const options = {
+    headers:{
+        'Content-Type': 'multipart/form-data'
+    }
+}
+   this.http.put(this.linkUpdateDelete + itemId + '.json', value, options)
    .subscribe();
 }
 
